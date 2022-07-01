@@ -1,0 +1,15 @@
+<script id="verifyTokenRH_id" type="module" src="/scripts/verifyTokenRH.js" urlS="{{url}}"></script>
+
+<div class="dashboard-title">
+    <h1 class="roboto_800">Recursos Humanos</h1>
+    <form id="logOut-form">
+        <input class="roboto_400" type="submit" value="Cerrar sesión">
+    </form>
+</div>
+{{#each archivos}}
+<ul>
+    <li>
+        <a href="{{url}}/uploads/recursos-humanos/{{this}}">{{this}}</a>
+    </li>
+</ul>
+{{/each}}

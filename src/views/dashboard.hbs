@@ -1,0 +1,85 @@
+<script id="verifyTokenAdmin_id" type="module" src="/scripts/verifyTokenAdmin.js" urlS="{{url}}"></script>
+<div class="dashboard-title">
+    <h1 class="roboto_800">DashBoard</h1>
+    <form id="logOut-form">
+        <input class="roboto_400" type="submit" value="Cerrar sesión">
+    </form>
+</div>
+<div class="dashboard">
+    <div class="dashboard-directorios">
+        {{!-- {{#each directorios}}
+        <ul>
+            <li><a href="comercial-admin">{{this}}</a></li>
+        </ul>
+        {{/each}} --}}
+        <h1 class="roboto_800">Carpetas</h1>
+        <ul>
+            <li><a class="roboto_400" href="comercial-admin">Comnercial</a></li>
+            <li><a class="roboto_400" href="rh-admin">Recursos Humanos</a></li>
+        </ul>
+    </div>
+    <div class="dashboard-users">
+        <div class="dashboard-users-create">
+            <h1 class="roboto_800">Nuevo usuario</h1>
+            <form id="create_user-form">
+                <input id="username_id" class="roboto_400" type="text" placeholder="Nombre de Usuario">
+                <select id="rol_id" class="roboto_400">
+                    <option hidden="hidden" selected="selected" value="">Rol</option>
+                    <option value="RecursosHumanos">Recursos Humanos</option>
+                    <option value="Comercial">Comercial</option>
+                </select>
+                <input id="password_id" class="roboto_400" type="password" placeholder="Contraseña">
+                <input id="password_conf_id" class="roboto_400" type="password" placeholder="Confirmar Contraseña">
+                <input id="create_user-submit_id" class="roboto_400" type="submit" value="Crear">
+            </form>
+            {{!-- <form action="/api/admin/create-user" method="post">
+                <input type="text" name="username" placeholder="Nombre de Usuario">
+                <select name="rol">
+                    <option hidden="hidden" selected="selected" value="">Rol</option>
+                    <option value="RecursosHumanos">Recursos Humanos</option>
+                    <option value="Comercial">Comercial</option>
+                </select>
+                <input type="password" name="password" placeholder="Contraseña">
+                <input type="password" name="password_conf" placeholder="Confirmar Contraseña">
+                <input type="submit" value="Crear">
+            </form> --}}
+        </div>
+        <div class="dashboard-users-show">
+            <h1 class="roboto_800">Usuarios Registrados</h1>
+            <div class="dashboard-users-show-title">
+                <div class="dashboard-users-show-cont-center">
+                    <h2 class="roboto_400"><strong>Usuario</strong></h2>
+                </div>
+                <div class="dashboard-users-show-cont-center">
+                    <h2 class="roboto_400"><strong>Rol</strong></h2>
+                </div>
+                <div class="dashboard-users-show-cont-center">
+                    <h2 class="roboto_400"><strong>Editar</strong></h2>
+                </div>
+                <div class="dashboard-users-show-cont-center">
+                    <h2 class="roboto_400"><strong>Eliminar</strong></h2>
+                </div>
+            </div>
+            <div class="dashboard-users-show-cont">
+                {{#each users as | val key |}}
+                <div class="dashboard-users-show-cont-left">
+                    <p class="roboto_400">{{this.userName}}</p>
+                </div>
+                <div class="dashboard-users-show-cont-left">
+                    <p class="roboto_400">{{this.rol}}</p>
+                </div>
+                <div class="dashboard-users-show-cont-center">
+                    <button class="roboto_400" onclick='edit_user_form("{{this._id}}")'>Editar</button>
+                </div>
+                <div class="dashboard-users-show-cont-center">
+                    <form id="delete_user-form_id-{{key}}" name="{{this._id}}">
+                        {{!-- <input type="hidden" name="_method" value="DELETE"> --}}
+                        <input id="delete_user-submit_id-{{key}}" class="roboto_400" type="submit" value="Eliminar"
+                            onclick="delete_user_form({{key}})">
+                    </form>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

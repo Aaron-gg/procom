@@ -1,0 +1,14 @@
+<script id="verifyTokenComercial_id" type="module" src="/scripts/verifyTokenComercial.js" urlS="{{url}}"></script>
+<div class="dashboard-title">
+    <h1 class="roboto_800">Comercial</h1>
+    <form id="logOut-form">
+        <input class="roboto_400" type="submit" value="Cerrar sesión">
+    </form>
+</div>
+{{#each archivos}}
+<ul>
+    <li>
+        <a class="roboto_400" href="{{url}}/uploads/comercial/{{this}}">{{this}}</a>
+    </li>
+</ul>
+{{/each}}

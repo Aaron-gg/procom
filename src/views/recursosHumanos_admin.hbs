@@ -1,0 +1,24 @@
+<script id="verifyTokenAdmin_id" type="module" src="/scripts/verifyTokenAdmin.js" urlS="{{url}}"></script>
+<h1 class="center-title roboto_800">Recursos Humanos - admin</h1>
+<div class="button_back">
+    <button class="roboto_400" onclick="return_home()">Home</button>
+</div>
+<div class="form_center files">
+    <form id="rh_file_upload-form" enctype="multipart/form-data">
+        <input type="file" id="file-rh_id" name="file-rh">
+        <input type="submit" id="rh_file_upload-submit_id" value="Enviar">
+    </form>
+</div>
+<div class="files_cont-admin">
+    {{#each archivos as | val key |}}
+    <div>
+        <a class="roboto_400" href="{{url}}/uploads/recursos-humanos/{{this}}">{{this}}</a>
+    </div>
+    <div class="files_cont-admin-center">
+        <form id="rh_file_delete-form-{{key}}"></form>
+            <input type="hidden" id="id_delete_rh_file_id-{{key}}" value="{{this}}">
+            <input type="submit" class="roboto_400" id="delete_rh_file-submit_id-{{key}}" value="Eliminar" onclick="delete_file_rh_form({{key}})">
+        </form>
+    </div>
+    {{/each}}
+</div>

@@ -1,0 +1,115 @@
+body{
+    margin: 0;
+}
+h1{
+    color: rgb(102 158 242);
+    font-size: 2.7vw;
+}
+a, p, h2, input, select, button{
+    text-decoration: none;
+    color: #004858;
+    font-size: 1.2vw;
+}
+button:hover,
+input[type = submit]:hover{
+    cursor: pointer;
+}
+.roboto_400{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+.roboto_800{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+}
+.center-title{
+    text-align: center;
+}
+.button_back{
+    text-align: end;
+    margin-right: 5vw;
+}
+.form_center{
+    display: grid;
+    grid-template-columns: 20%;
+    justify-content: center;
+}
+.form_center form{
+    display: grid;
+}
+.files{
+    grid-template-columns: 30%;
+}
+.form_center form input,
+.form_center form select{
+    margin-bottom: 1vw;
+}
+.form_center-cont{
+    width: 15vw;
+    text-align: center;
+}
+.dashboard-title{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 2vw;
+}
+.dashboard{
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+.dashboard-directorios{
+    margin-left: 2vw;
+}
+.dashboard-directorios ul li{
+    margin: 1vw 0;
+}
+.dashboard-users{
+    margin: 0 1vw;
+}
+.dashboard-users-show-title{
+    display: grid;
+    grid-template-columns: 20% 40% 20% 20%;
+}
+.dashboard-users-show-cont{
+    display: grid;
+    grid-template-columns: 20% 40% 20% 20%;
+    overflow-y: auto;
+    height: 45vh;
+}
+.dashboard-users-show-cont-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dashboard-users-show-cont-left{
+    display: flex;
+    padding-left: 1vw;
+    justify-content: left;
+    align-items: center;
+}
+.dashboard-users-show-cont div{
+    border: solid #000 0.5px; 
+}
+.dashboard-users-show-title div{
+    border-top: solid #000 0.5px; 
+    border-bottom: solid #000 0.5px; 
+}
+.files_cont-admin{
+    display: grid;
+    grid-template-columns: 90% 10%;
+    overflow-y: auto;
+    max-height: 65vh;
+}
+.files_cont-admin div{
+    display: flex;
+    align-items: center;
+    height: 4vw;
+    border: solid #000 0.5px;
+    padding-left: 2vw;
+}
+.files_cont-admin-center{
+    justify-content: center;
+    padding: 0!important;
+}

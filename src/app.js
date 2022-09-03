@@ -4,7 +4,7 @@ const path = require("path");
 const exphbs = require("express-handlebars");
 const methodOverride = require("method-override");
 
-const { createRoles } = require("./libs/initialSetUp");
+//const { createRoles } = require("./libs/initialSetUp");
 
 const adminRoutes = require('./routes/admin.routes');
 const authRoutes = require('./routes/auth.routes');
@@ -14,7 +14,7 @@ const { notFound, internalServerError } = require('./handlers/handlers.js');
 
 // Initializations
 const app = express();
-createRoles();
+//createRoles();
 require("./config/database");
 
 // Settings

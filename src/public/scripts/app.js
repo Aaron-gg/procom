@@ -3,6 +3,8 @@ const url = "http://165.227.199.243:3333";
 
 $("#logIn-form").on('submit', (e) => {
     e.preventDefault();
+    const alert_view = $('#alert');
+    alert_view.css({"background-color": "#6e6e6e85"}).show();
 
     const username = $("#username_id").val();
     const password = $("#password_id").val();
@@ -16,12 +18,14 @@ $("#logIn-form").on('submit', (e) => {
         },
     })
         .then((res) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.log(res);
             localStorage.setItem("auth", res.data.token);
             const userUrl = res.data.url;
             window.location.href = `${url}${userUrl}`;
         })
         .catch(err => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.error(err.response);
             alert(JSON.stringify(err.response.data.message));
         })
@@ -29,6 +33,8 @@ $("#logIn-form").on('submit', (e) => {
 
 $("#logOut-form").on('submit', (e) => {
     e.preventDefault();
+    const alert_view = $('#alert');
+    alert_view.css({"background-color": "#6e6e6e85"}).show();
 
     axios({
         method: "POST",
@@ -36,13 +42,19 @@ $("#logOut-form").on('submit', (e) => {
         headers: { "x-access-token": localStorage.getItem("auth") },
     })
         .then((res) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             localStorage.removeItem("auth");
             window.location.href = `${url}/api/auth/singin-page`;
         })
-        .catch(err => console.log(err.response.data))
+        .catch(err => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
+            console.log(err.response.data)
+        })
 });
 
 $("#create_user-form").on('submit', (e) => {
+    const alert_view = $('#alert');
+    alert_view.css({"background-color": "#6e6e6e85"}).show();
     let buton_disabled = $("#create_user-submit_id");
     buton_disabled.prop('disabled', true);
     e.preventDefault();
@@ -64,12 +76,14 @@ $("#create_user-form").on('submit', (e) => {
         },
     })
         .then((res) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.log(res.data.message);
             if (res.data.message === "Usuario Creado") window.location.reload();
             buton_disabled.removeAttr('disabled');
-
+            
         })
         .catch((err) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.error(err.response);
             verify_tok(err.response.data.message);
             alert(JSON.stringify(err.response.data.message));
@@ -78,6 +92,8 @@ $("#create_user-form").on('submit', (e) => {
 });
 
 $("#edit_user-form").on('submit', (e) => {
+    const alert_view = $('#alert');
+    alert_view.css({"background-color": "#6e6e6e85"}).show();
     let buton_disabled = $("#edit_user-submit_id");
     buton_disabled.prop('disabled', true);
     e.preventDefault();
@@ -100,11 +116,13 @@ $("#edit_user-form").on('submit', (e) => {
         },
     })
         .then((res) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.log(res.data.message);
             if (res.data.message === "Usuario Editado") return_home();
             buton_disabled.removeAttr('disabled');
         })
         .catch((err) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.error(err.response);
             verify_tok(err.response.data.message);
             alert(JSON.stringify(err.response.data.message));
@@ -157,6 +175,8 @@ const verify_tok = (res) => {
 
 // DG
 $("#dg_file_upload-form").on('submit', (e) => {
+    const alert_view = $('#alert');
+    alert_view.css({"background-color": "#6e6e6e85"}).show();
     const buton_disabled = $("#dg_file_upload-submit_id");
     buton_disabled.prop('disabled', true);
     e.preventDefault();
@@ -170,11 +190,13 @@ $("#dg_file_upload-form").on('submit', (e) => {
         processData: false,
         contentType: false,
         success: (res) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.log(res);
             if (res.message === "Archivo Cargado") window.location.reload();
             buton_disabled.removeAttr('disabled');
         },
         error: (err) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.error(err);
             if (err.responseJSON) {
                 console.error(err.responseJSON);
@@ -201,6 +223,8 @@ $("#dg_file_upload-form").on('submit', (e) => {
 });
 
 const delete_file_dg_form = (formId) => {
+    const alert_view = $('#alert');
+    alert_view.css({"background-color": "#6e6e6e85"}).show();
     const buton_disabled = $(`#delete_dg_file-submit_id-${formId}`);
     buton_disabled.prop('disabled', true);
 
@@ -211,10 +235,12 @@ const delete_file_dg_form = (formId) => {
         headers: { "x-access-token": localStorage.getItem("auth") },
     })
         .then((res) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             if (res.data.message === "Archivo Eliminado") window.location.reload();
             buton_disabled.removeAttr('disabled');
         })
         .catch((err) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.log(err.response.data.mesage);
             alert(JSON.stringify(err.response.data.message));
             verify_tok(err.response.data.message);
@@ -224,6 +250,8 @@ const delete_file_dg_form = (formId) => {
 
 // Administracion
 $("#administracion_file_upload-form").on('submit', (e) => {
+    const alert_view = $('#alert');
+    alert_view.css({"background-color": "#6e6e6e85"}).show();
     const buton_disabled = $("#administracion_file_upload-submit_id");
     buton_disabled.prop('disabled', true);
     e.preventDefault();
@@ -237,11 +265,13 @@ $("#administracion_file_upload-form").on('submit', (e) => {
         processData: false,
         contentType: false,
         success: (res) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.log(res);
             if (res.message === "Archivo Cargado") window.location.reload();
             buton_disabled.removeAttr('disabled');
         },
         error: (err) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.error(err);
             if (err.responseJSON) {
                 console.error(err.responseJSON);
@@ -268,6 +298,8 @@ $("#administracion_file_upload-form").on('submit', (e) => {
 });
 
 const delete_file_administracion_form = (formId) => {
+    const alert_view = $('#alert');
+    alert_view.css({"background-color": "#6e6e6e85"}).show();
     const buton_disabled = $(`#delete_administracion_file-submit_id-${formId}`);
     buton_disabled.prop('disabled', true);
 
@@ -278,10 +310,12 @@ const delete_file_administracion_form = (formId) => {
         headers: { "x-access-token": localStorage.getItem("auth") },
     })
         .then((res) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             if (res.data.message === "Archivo Eliminado") window.location.reload();
             buton_disabled.removeAttr('disabled');
         })
         .catch((err) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.log(err.response.data.mesage);
             alert(JSON.stringify(err.response.data.message));
             verify_tok(err.response.data.message);
@@ -291,6 +325,8 @@ const delete_file_administracion_form = (formId) => {
 
 // RH
 $("#rh_file_upload-form").on('submit', (e) => {
+    const alert_view = $('#alert');
+    alert_view.css({"background-color": "#6e6e6e85"}).show();
     const buton_disabled = $("#rh_file_upload-submit_id");
     buton_disabled.prop('disabled', true);
     e.preventDefault();
@@ -304,11 +340,13 @@ $("#rh_file_upload-form").on('submit', (e) => {
         processData: false,
         contentType: false,
         success: (res) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.log(res);
             if (res.message === "Archivo Cargado") window.location.reload();
             buton_disabled.removeAttr('disabled');
         },
         error: (err) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.error(err);
             if (err.responseJSON) {
                 console.error(err.responseJSON);
@@ -335,6 +373,8 @@ $("#rh_file_upload-form").on('submit', (e) => {
 });
 
 const delete_file_rh_form = (formId) => {
+    const alert_view = $('#alert');
+    alert_view.css({"background-color": "#6e6e6e85"}).show();
     const buton_disabled = $(`#delete_rh_file-submit_id-${formId}`);
     buton_disabled.prop('disabled', true);
 
@@ -345,10 +385,12 @@ const delete_file_rh_form = (formId) => {
         headers: { "x-access-token": localStorage.getItem("auth") },
     })
         .then((res) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             if (res.data.message === "Archivo Eliminado") window.location.reload();
             buton_disabled.removeAttr('disabled');
         })
         .catch((err) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.log(err.response.data.mesage);
             alert(JSON.stringify(err.response.data.message));
             verify_tok(err.response.data.message);
@@ -358,6 +400,8 @@ const delete_file_rh_form = (formId) => {
 
 // Comercial 1
 $("#comercial1_file_upload-form").on('submit', (e) => {
+    const alert_view = $('#alert');
+    alert_view.css({"background-color": "#6e6e6e85"}).show();
     const buton_disabled = $("#comercial1_file_upload-submit_id");
     buton_disabled.prop('disabled', true);
     e.preventDefault();
@@ -371,11 +415,13 @@ $("#comercial1_file_upload-form").on('submit', (e) => {
         processData: false,
         contentType: false,
         success: (res) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.log(res);
             if (res.message === "Archivo Cargado") window.location.reload();
             buton_disabled.removeAttr('disabled');
         },
         error: (err) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.error(err);
             if (err.responseJSON) {
                 console.error(err.responseJSON);
@@ -402,6 +448,8 @@ $("#comercial1_file_upload-form").on('submit', (e) => {
 });
 
 const delete_file_comercial1_form = (formId) => {
+    const alert_view = $('#alert');
+    alert_view.css({"background-color": "#6e6e6e85"}).show();
     const buton_disabled = $(`#delete_comercial1_file-submit_id-${formId}`);
     buton_disabled.prop('disabled', true);
 
@@ -412,10 +460,12 @@ const delete_file_comercial1_form = (formId) => {
         headers: { "x-access-token": localStorage.getItem("auth") },
     })
         .then((res) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             if (res.data.message === "Archivo Eliminado") window.location.reload();
             buton_disabled.removeAttr('disabled');
         })
         .catch((err) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.log(err.response.data.mesage);
             alert(JSON.stringify(err.response.data.message));
             verify_tok(err.response.data.message);
@@ -425,6 +475,8 @@ const delete_file_comercial1_form = (formId) => {
 
 // Comercial 2
 $("#comercial2_file_upload-form").on('submit', (e) => {
+    const alert_view = $('#alert');
+    alert_view.css({"background-color": "#6e6e6e85"}).show();
     const buton_disabled = $("#comercial2_file_upload-submit_id");
     buton_disabled.prop('disabled', true);
     e.preventDefault();
@@ -438,11 +490,13 @@ $("#comercial2_file_upload-form").on('submit', (e) => {
         processData: false,
         contentType: false,
         success: (res) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.log(res);
             if (res.message === "Archivo Cargado") window.location.reload();
             buton_disabled.removeAttr('disabled');
         },
         error: (err) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.error(err);
             if (err.responseJSON) {
                 console.error(err.responseJSON);
@@ -469,6 +523,8 @@ $("#comercial2_file_upload-form").on('submit', (e) => {
 });
 
 const delete_file_comercial2_form = (formId) => {
+    const alert_view = $('#alert');
+    alert_view.css({"background-color": "#6e6e6e85"}).show();
     const buton_disabled = $(`#delete_comercial2_file-submit_id-${formId}`);
     buton_disabled.prop('disabled', true);
 
@@ -479,10 +535,12 @@ const delete_file_comercial2_form = (formId) => {
         headers: { "x-access-token": localStorage.getItem("auth") },
     })
         .then((res) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             if (res.data.message === "Archivo Eliminado") window.location.reload();
             buton_disabled.removeAttr('disabled');
         })
         .catch((err) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.log(err.response.data.mesage);
             alert(JSON.stringify(err.response.data.message));
             verify_tok(err.response.data.message);
@@ -492,6 +550,8 @@ const delete_file_comercial2_form = (formId) => {
 
 // Comercial 3
 $("#comercial3_file_upload-form").on('submit', (e) => {
+    const alert_view = $('#alert');
+    alert_view.css({"background-color": "#6e6e6e85"}).show();
     const buton_disabled = $("#comercial3_file_upload-submit_id");
     buton_disabled.prop('disabled', true);
     e.preventDefault();
@@ -505,11 +565,13 @@ $("#comercial3_file_upload-form").on('submit', (e) => {
         processData: false,
         contentType: false,
         success: (res) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.log(res);
             if (res.message === "Archivo Cargado") window.location.reload();
             buton_disabled.removeAttr('disabled');
         },
         error: (err) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.error(err);
             if (err.responseJSON) {
                 console.error(err.responseJSON);
@@ -536,6 +598,8 @@ $("#comercial3_file_upload-form").on('submit', (e) => {
 });
 
 const delete_file_comercial3_form = (formId) => {
+    const alert_view = $('#alert');
+    alert_view.css({"background-color": "#6e6e6e85"}).show();
     const buton_disabled = $(`#delete_comercial3_file-submit_id-${formId}`);
     buton_disabled.prop('disabled', true);
 
@@ -546,10 +610,12 @@ const delete_file_comercial3_form = (formId) => {
         headers: { "x-access-token": localStorage.getItem("auth") },
     })
         .then((res) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             if (res.data.message === "Archivo Eliminado") window.location.reload();
             buton_disabled.removeAttr('disabled');
         })
         .catch((err) => {
+            alert_view.css({"background-color": "#6e6e6e"}).hide();
             console.log(err.response.data.mesage);
             alert(JSON.stringify(err.response.data.message));
             verify_tok(err.response.data.message);

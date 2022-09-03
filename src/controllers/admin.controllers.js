@@ -118,7 +118,7 @@ const controller = {
                     return archivo.split(".")[1];
                 });
                 */
-                res.status(200).render("DireccionGeneral_admin", { url, archivos });//·crear archivo hbs
+                res.status(200).render("direccionGeneral_admin", { url, archivos });//·crear archivo hbs
             });
         } catch (err) {
             console.log(`[direccionGeneral][error]: ${JSON.stringify(err)}`);

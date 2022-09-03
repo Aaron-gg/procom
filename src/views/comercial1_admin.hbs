@@ -1,0 +1,31 @@
+<script id="verifyTokenAdmin_id" type="module" src="/scripts/verifyTokenAdmin.js" urlS="{{url}}"></script>
+<div id="alert">
+    <div class="load">
+        <div class="load1"></div>
+        <div class="load2"></div>
+    </div>
+</div>
+<h1 class="center-title roboto_800">Comercial 1 - admin</h1>
+<div class="button_back">
+    <button class="roboto_400" onclick="return_home()">Home</button>
+</div>
+<div class="form_center files">
+    {{!-- <form action="/api/admin/comercial-upload-file" method="post" enctype="multipart/form-data"> --}}
+        <form id="comercial1_file_upload-form" enctype="multipart/form-data">
+            <input type="file" id="file-comercial1_id" name="file-comercial1">
+            <input type="submit" id="comercial1_file_upload-submit_id" value="Enviar">
+        </form>
+</div>
+<div class="files_cont-admin">
+    {{#each archivos as | val key |}}
+    <div>
+        <a id="file-{{key}}" class="roboto_400 list-files" onclick="redirectFileComercial1({{key}})" name="{{this}}">{{this}}</a>
+    </div>
+    <div class="files_cont-admin-center">
+        <form id="comercial1_file_delete-form-{{key}}">
+            <input type="hidden" id="id_delete_comercial1_file_id-{{key}}" value="{{this}}">
+            <input type="submit" class="roboto_400" id="delete_comercial1_file-submit_id-{{key}}" value="Eliminar" onclick="delete_file_comercial1_form({{key}})">
+        </form>
+    </div>
+    {{/each}}
+</div>

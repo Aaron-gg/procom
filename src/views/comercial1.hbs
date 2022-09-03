@@ -1,4 +1,4 @@
-<script id="verifyTokenRH_id" type="module" src="/scripts/verifyTokenRH.js" urlS="{{url}}"></script>
+<script id="verifyTokenComercial1_id" type="module" src="/scripts/verifyTokenComercial1.js" urlS="{{url}}"></script>
 <div id="alert">
     <div class="load">
         <div class="load1"></div>
@@ -6,7 +6,7 @@
     </div>
 </div>
 <div class="dashboard-title">
-    <h1 class="roboto_800">Recursos Humanos</h1>
+    <h1 class="roboto_800">Comercial 1</h1>
     <form id="logOut-form">
         <input class="roboto_400" type="submit" value="Cerrar sesión">
     </form>
@@ -14,7 +14,7 @@
 {{#each archivos as | val key |}}
 <ul>
     <li>
-        <a id="file-{{key}}" class="roboto_400 list-files" onclick="redirectFileRH({{key}})" name="{{this}}">{{this}}</a>
+        <a id="file-{{key}}" class="roboto_400 list-files" onclick="redirectFileComercial1({{key}})" name="{{this}}">{{this}}</a>
     </li>
 </ul>
 {{/each}}

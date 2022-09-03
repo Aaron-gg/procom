@@ -10,6 +10,8 @@ const adminRoutes = require('./routes/admin.routes');
 const authRoutes = require('./routes/auth.routes');
 const uploadsRoutes = require('./routes/uploads.routes');
 
+const { notFound, internalServerError } = require('./handlers/handlers.js');
+
 // Initializations
 const app = express();
 createRoles();
@@ -38,5 +40,9 @@ app.use('/uploads', uploadsRoutes);
 
 // Static files
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Handlers
+app.use(notFound);
+app.use(internalServerError);
 
 module.exports = app;

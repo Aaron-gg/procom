@@ -1,4 +1,10 @@
 <script id="verifyTokenAdmin_id" type="module" src="/scripts/verifyTokenAdmin.js" urlS="{{url}}"></script>
+<div id="alert">
+    <div class="load">
+        <div class="load1"></div>
+        <div class="load2"></div>
+    </div>
+</div>
 <h1 class="center-title roboto_800">Recursos Humanos - admin</h1>
 <div class="button_back">
     <button class="roboto_400" onclick="return_home()">Home</button>
@@ -12,7 +18,7 @@
 <div class="files_cont-admin">
     {{#each archivos as | val key |}}
     <div>
-        <a class="roboto_400" href="{{url}}/uploads/recursos-humanos/{{this}}">{{this}}</a>
+        <a id="file-{{key}}" class="roboto_400 list-files" onclick="redirectFileRH({{key}})" name="{{this}}">{{this}}</a>
     </div>
     <div class="files_cont-admin-center">
         <form id="rh_file_delete-form-{{key}}"></form>

@@ -1,8 +1,8 @@
-const url = $("#verifyTokenAdmin_id").attr("urlS");
+const url = $("#verifyTokenAdministracion_id").attr("urlS");
 
 axios({
     method: "GET",
-    url: "/api/auth/t/admin",
+    url: "/api/auth/t/administracion",
     headers: { "x-access-token": localStorage.getItem("auth") },
 })
     .then(res => {

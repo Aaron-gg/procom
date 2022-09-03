@@ -1,0 +1,30 @@
+<script id="verifyTokenAdmin_id" type="module" src="/scripts/verifyTokenAdmin.js" urlS="{{url}}"></script>
+<div id="alert">
+    <div class="load">
+        <div class="load1"></div>
+        <div class="load2"></div>
+    </div>
+</div>
+<h1 class="center-title roboto_800">Administración - admin</h1>
+<div class="button_back">
+    <button class="roboto_400" onclick="return_home()">Home</button>
+</div>
+<div class="form_center files">
+    <form id="administracion_file_upload-form" enctype="multipart/form-data">
+        <input type="file" id="file-administracion_id" name="file-administracion">
+        <input type="submit" id="administracion_file_upload-submit_id" value="Enviar">
+    </form>
+</div>
+<div class="files_cont-admin">
+    {{#each archivos as | val key |}}
+    <div>
+        <a id="file-{{key}}" class="roboto_400 list-files" onclick="redirectFileAdministracion({{key}})" name="{{this}}">{{this}}</a>
+    </div>
+    <div class="files_cont-admin-center">
+        <form id="administracion_file_delete-form-{{key}}"></form>
+            <input type="hidden" id="id_delete_administracion_file_id-{{key}}" value="{{this}}">
+            <input type="submit" class="roboto_400" id="delete_administracion_file-submit_id-{{key}}" value="Eliminar" onclick="delete_file_administracion_form({{key}})">
+        </form>
+    </div>
+    {{/each}}
+</div>

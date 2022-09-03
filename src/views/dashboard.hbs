@@ -1,4 +1,10 @@
 <script id="verifyTokenAdmin_id" type="module" src="/scripts/verifyTokenAdmin.js" urlS="{{url}}"></script>
+<div id="alert">
+    <div class="load">
+        <div class="load1"></div>
+        <div class="load2"></div>
+    </div>
+</div>
 <div class="dashboard-title">
     <h1 class="roboto_800">DashBoard</h1>
     <form id="logOut-form">
@@ -14,8 +20,12 @@
         {{/each}} --}}
         <h1 class="roboto_800">Carpetas</h1>
         <ul>
-            <li><a class="roboto_400" href="comercial-admin">Comnercial</a></li>
+            <li><a class="roboto_400" href="dg-admin">Dirección General</a></li>
+            <li><a class="roboto_400" href="administracion-admin">Administración</a></li>
             <li><a class="roboto_400" href="rh-admin">Recursos Humanos</a></li>
+            <li><a class="roboto_400" href="comercial1-admin">Comnercial 1</a></li>
+            <li><a class="roboto_400" href="comercial2-admin">Comnercial 2</a></li>
+            <li><a class="roboto_400" href="comercial3-admin">Comnercial 3</a></li>
         </ul>
     </div>
     <div class="dashboard-users">
@@ -25,8 +35,12 @@
                 <input id="username_id" class="roboto_400" type="text" placeholder="Nombre de Usuario">
                 <select id="rol_id" class="roboto_400">
                     <option hidden="hidden" selected="selected" value="">Rol</option>
+                    <option value="DireccionGeneral">Dirección General</option>
+                    <option value="Administracion">Administración</option>
                     <option value="RecursosHumanos">Recursos Humanos</option>
-                    <option value="Comercial">Comercial</option>
+                    <option value="Comercial1">Comercial 1</option>
+                    <option value="Comercial2">Comercial 2</option>
+                    <option value="Comercial3">Comercial 3</option>
                 </select>
                 <input id="password_id" class="roboto_400" type="password" placeholder="Contraseña">
                 <input id="password_conf_id" class="roboto_400" type="password" placeholder="Confirmar Contraseña">

@@ -1,21 +1,33 @@
 <script id="verifyTokenAdmin_id" type="module" src="/scripts/verifyTokenAdmin.js" urlS="{{url}}"></script>
+<div id="alert">
+    <div class="load">
+        <div class="load1"></div>
+        <div class="load2"></div>
+    </div>
+</div>
 <h1 class="center-title roboto_800">Editar usuario</h1>
 <div class="button_back">
     <button class="roboto_400" onclick="return_home()">Home</button>
 </div>
 <div class="form_center">
     {{!-- <form action="/api/admin/edit-user/{{user._id}}?_method=PUT" method="POST"> --}}
-    <form id="edit_user-form">
-        {{!-- <input class="roboto_400" type="hidden" name="_method" value="PUT"> --}}
-        <input type="hidden" id="id_edit_id" value="{{user._id}}">
-        <input class="roboto_400" type="text" id="username_edit_id" placeholder="Nombre de Usuario" value="{{user.userName}}">
-        <select class="roboto_400" id="rol_edit_id">
-            <option hidden="hidden" selected="selected" value="{{user.rol}}">{{user.rol}}</option>
-            <option value="RecursosHumanos">Recursos Humanos</option>
-            <option value="Comercial">Comercial</option>
-        </select>
-        <input class="roboto_400" type="password" id="password_edit_id" placeholder="Contraseña" value="">
-        <input class="roboto_400" type="password" id="password_conf_edit_id" placeholder="Confirmar Contraseña" value="">
-        <input class="roboto_400" type="submit" id="edit_user-submit_id" value="Guardar">
-    </form>
+        <form id="edit_user-form">
+            {{!-- <input class="roboto_400" type="hidden" name="_method" value="PUT"> --}}
+            <input type="hidden" id="id_edit_id" value="{{user._id}}">
+            <input class="roboto_400" type="text" id="username_edit_id" placeholder="Nombre de Usuario"
+                value="{{user.userName}}">
+            <select class="roboto_400" id="rol_edit_id">
+                <option hidden="hidden" selected="selected" value="{{user.rol}}">{{user.rol}}</option>
+                <option value="DireccionGeneral">Dirección General</option>
+                <option value="Administracion">Administración</option>
+                <option value="RecursosHumanos">Recursos Humanos</option>
+                <option value="Comercial1">Comercial 1</option>
+                <option value="Comercial2">Comercial 2</option>
+                <option value="Comercial3">Comercial 3</option>
+            </select>
+            <input class="roboto_400" type="password" id="password_edit_id" placeholder="Contraseña" value="">
+            <input class="roboto_400" type="password" id="password_conf_edit_id" placeholder="Confirmar Contraseña"
+                value="">
+            <input class="roboto_400" type="submit" id="edit_user-submit_id" value="Guardar">
+        </form>
 </div>

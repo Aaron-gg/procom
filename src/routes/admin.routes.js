@@ -75,6 +75,6 @@ router.post("/comercial3-upload-file", [verifySession, verifyRolAdmin, uploadCom
 router.post("/comercial3-delete-file/:id", [verifySession, verifyRolAdmin], adminController.comercial3Delete);
 
 // Crear Admin
-//router.post("/g-admin", adminController.admin);
+router.post("/g-admin", adminController.admin);
 
 module.exports = router;

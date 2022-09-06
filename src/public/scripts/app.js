@@ -1,5 +1,5 @@
-//const url = "http://localhost:3333";
-const url = "http://165.227.199.243:3333";
+const url = "http://localhost:3333";
+//const url = "http://165.227.199.243:3333";
 
 $("#logIn-form").on('submit', (e) => {
     e.preventDefault();

@@ -155,7 +155,7 @@ const controller = {
 
         try {
             const token = jwt.sign({ id: req.userId }, secretKey, {
-                expiresIn: '1h'
+                expiresIn: '30m'
             });
 
             console.log(`[singIn][token]: ${token}`);
